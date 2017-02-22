@@ -50,5 +50,21 @@ public class MakeCommaTest {
 		return str + strTail;
 	}	
 
+	
+	private static String makeCom(String num)
+	{
+		String str="";
+
+		for (int i=1; i<=num.length(); i++)
+		{
+			if (i >1 && i%3 == 1)
+				str = num.charAt(num.length() - i) +","+str;
+			else
+				str = num.charAt(num.length() - i)+str;
+		}
+		
+		return str;		
+	}
+	
 }
 
