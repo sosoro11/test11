@@ -4,7 +4,7 @@ class MakeCommaTest
   private function _makeComma($num)
   {
     $isChk = false;
-    if (strpos($num, "-") !== false)
+    if (strpos($num, "-") !== false) //strpos — 문자열이 처음 나타나는 위치 , -기호가있으면
     {
       $isChk = true;
     }
@@ -18,7 +18,7 @@ class MakeCommaTest
 
     for($i=0; $i<strlen($num); $i++)
     {
-      if ($i!=0 && $i%3==(strlen($num)%3))
+      if ($i!=0 && $i%3==(strlen($num)%3)) //strlen($num)%3 => 콤마위치, 콤마찍을 위치이면,
       {
          if (!$isChk || $i!=1) //-,200,000
           $str .= ",";

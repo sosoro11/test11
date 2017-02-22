@@ -53,18 +53,45 @@ public class MakeCommaTest {
 	
 	private static String makeCom(String num)
 	{
-		String str="";
-
-		for (int i=1; i<=num.length(); i++)
-		{
-			if (i >1 && i%3 == 1)
-				str = num.charAt(num.length() - i) +","+str;
-			else
-				str = num.charAt(num.length() - i)+str;
+		/*System.out.println(makeCom("-200000"));	
+		System.out.println(makeCom("-325436454323425.24"));
+		System.out.println(makeCom("2000000"));
+		*/
+		//문자열 담기 위한 변수
+		String str="";		
+		//소수점 이하 담기 위한 변수
+		String strTail = "";
+		//비교 기호
+		String op = "-, +";
+		
+		//소수점		
+		if (num.indexOf(".") >= 0) {
+			strTail = num.substring(num.indexOf(".")); //소수점이 있으면(소수점위치반환)소수점 부터 끝까지 추출하여 strTail 변수에 저장
+			num = num.substring(0, num.indexOf("."));//소수점이 있으면 숫자를 0부터 소수점 직전까지 가지고 와서 num 변수에 저장		
 		}
 		
-		return str;		
-	}
-	
+		boolean isOp = false;
+		if (op.indexOf(num.charAt(0)) >= 0) // +,- 가 있으면
+			isOp = true;
+
+		for (int i=1; i<=num.length(); i++)
+		{			
+			/*System.out.println(str);
+			System.out.println(i);
+			System.out.println(i%3);*/
+			if (i >1 && i%3 == 0) { //세번째짜리 콤마 붙이기
+				if (isOp && (num.length() - i) == 1) { 
+					str = num.charAt(num.length() - i)+str; //-,325,436,454,323,425.24 처리					
+				}  else {
+					str = ","+num.charAt(num.length() - i) +str;
+				}
+			} else {
+				str = num.charAt(num.length() - i)+str;
+			}
+
+		}
+		
+		return str+strTail;		
+	}	
 }
 
