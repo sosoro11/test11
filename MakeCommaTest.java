@@ -1,17 +1,17 @@
 package test12;
 
-public class test123 {
+public class MakeCommaTest {
 	
 	//숫자 형태의 문자열을 콤마가 포함된 금액 표기식 문자열로
 	public static void main(String args[]){
 		
 		long sTime = System.currentTimeMillis();		
-		System.out.println(makeComma("-234345523432223252323.5562345"));
+		System.out.println(makeComma("-234345523432223252323.5562345")); //-234,345,523,432,223,252,323.5562345
 		long eTime = System.currentTimeMillis() - sTime;
 		System.out.println(eTime + " ms");
 		
-		makeComma("200000000");
-		makeComma("2000000");		
+		System.out.println(makeComma("20000000")); //20,000,000
+		System.out.println(makeComma("2000000")); //2,000,000		
 	}
 	
 	private static String makeComma(String num) {
@@ -51,3 +51,4 @@ public class test123 {
 	}	
 
 }
+

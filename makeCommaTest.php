@@ -1,10 +1,8 @@
 <?php
-class Test14_1
+class MakeCommaTest
 {
   private function _makeComma($num)
   {
-    //$num = "-323425.24";
-
     $isChk = false;
     if (strpos($num, "-") !== false)
     {
@@ -34,10 +32,11 @@ class Test14_1
 
   public function index()
   {
-    echo $this->_makeComma(-323425.24)."<br>";
-    echo $this->_makeComma(2000000)."<br>";
-    echo $this->_makeComma(2000)."<br>";
+    echo $this->_makeComma(-323425.24); //-323,425.24
+    echo $this->_makeComma(2000000); //2,000,000
+    echo $this->_makeComma(2000); //-200,000
   }
 	
 }
+
 
